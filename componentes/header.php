@@ -8,7 +8,7 @@
           <ul class="navbar-nav mr-auto">
 
             <li class="nav-item">
-                  <a class="nav-link" href="/rosso.ezequiel/index.php">Home <span class="sr-only">(current)</span></a>          
+                  <a class="nav-link" href="/index.php">Home <span class="sr-only">(current)</span></a>          
             </li>
 
             <?php 
@@ -16,27 +16,27 @@
               {
              ?>
                 <li class="nav-item">
-                  <a class="nav-link" href="/rosso.ezequiel/paginas/ingresoVehiculo.php">Ingresar Vehiculo</a>
+                  <a class="nav-link" href="/paginas/ingresoVehiculo.php">Ingresar Vehiculo</a>
                 </li>
 
                 <li class="nav-item">
-                  <a class="nav-link" href="/rosso.ezequiel/paginas/facturarVehiculo.php">Facturar Vehiculo</a>
+                  <a class="nav-link" href="/paginas/facturarVehiculo.php">Facturar Vehiculo</a>
                 </li>
 
                 <li class="nav-item">
-                  <a class="nav-link" href="/rosso.ezequiel/paginas/listarVehiculos.php">Listar Vehiculos</a>
+                  <a class="nav-link" href="/paginas/listarVehiculos.php">Listar Vehiculos</a>
                 </li>
                    
                 <li class="nav-item">
-                  <a class="nav-link" href="/rosso.ezequiel/paginas/listarUsuarios.php">Listar Usuarios</a>
+                  <a class="nav-link" href="/paginas/listarUsuarios.php">Listar Usuarios</a>
                 </li>
 
                 <li class="nav-item">
-                  <a class="nav-link" href="/rosso.ezequiel/paginas/historicoVehiculos.php">Historial Vehiculos</a>
+                  <a class="nav-link" href="/paginas/historicoVehiculos.php">Historial Vehiculos</a>
                 </li>
         
                 <li class="nav-item">
-                  <a class="nav-link" href="/rosso.ezequiel/acciones/hacerLogout.php">Logout</a>
+                  <a class="nav-link" href="/acciones/hacerLogout.php">Logout</a>
                 </li>
               <?php 
               }
@@ -44,19 +44,19 @@
               {                
               ?>            
                 <li class="nav-item">
-                  <a class="nav-link" href="/rosso.ezequiel/paginas/ingresoVehiculo.php">Ingresar Vehiculo</a>
+                  <a class="nav-link" href="/paginas/ingresoVehiculo.php">Ingresar Vehiculo</a>
                 </li>
 
                 <li class="nav-item">
-                  <a class="nav-link" href="/rosso.ezequiel/paginas/facturarVehiculo.php">Facturar Vehiculo</a>
+                  <a class="nav-link" href="/paginas/facturarVehiculo.php">Facturar Vehiculo</a>
                 </li>
 
                 <li class="nav-item">
-                  <a class="nav-link" href="/rosso.ezequiel/paginas/listarVehiculos.php">Listar Vehiculos</a>
+                  <a class="nav-link" href="/paginas/listarVehiculos.php">Listar Vehiculos</a>
                 </li>
 
                 <li class="nav-item">
-                  <a class="nav-link" href="/rosso.ezequiel/acciones/hacerLogout.php">Logout</a>
+                  <a class="nav-link" href="/acciones/hacerLogout.php">Logout</a>
                 </li>
               <?php  
               }
@@ -64,11 +64,11 @@
               {
               ?>
                 <li class="nav-item">
-                  <a class="nav-link" href="/rosso.ezequiel/paginas/registro.php">Registrate</a>
+                  <a class="nav-link" href="/paginas/registro.php">Registrate</a>
                 </li>
 
                 <li class="nav-item">
-                  <a class="nav-link" href="/rosso.ezequiel/paginas/login.php">Login</a>
+                  <a class="nav-link" href="/paginas/login.php">Login</a>
                 </li>
               <?php 
               }
