@@ -32,6 +32,7 @@
       	<h2>Listado de usuarios</h2>
       	<ol>
 			<?php
+        include "../acciones/AccesoDatos.php";
 
         $objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
         $consulta =$objetoAccesoDato->RetornarConsulta("select * from usuario");

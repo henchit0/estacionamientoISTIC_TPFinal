@@ -23,21 +23,31 @@
     </header>
     <!-- Begin page content -->
     <main role="main" class="container">
-    	<div>
-      	<h2>Listado de vehiculos</h2>
-      	<ol>
-			<?php
-      error_reporting(0);
-			$archivo = fopen("../archivos/estacionados.txt", "r") or die("Imposible abrir el archivo");
-			while(!feof($archivo)) 
-			{
-		 		$objeto = json_decode(fgets($archivo));
-        if (!$objeto == "") {
-          echo "<li>Patente: ".$objeto->patente." Fecha de ingreso: ".date("d-m-y H:i",$objeto->horaIngreso)."</li>";
-        }
-			}
-			fclose($archivo);
-			?>
+    	<?php 
+      if (isset($_SESSION['idDeUsuario'])) 
+      {
+        ?>      
+      <div>
+        <h2>Listado de vehiculos</h2>
+        <ol>
+      <?php
+        include "../acciones/AccesoDatos.php";
+
+        $objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
+        $consulta =$objetoAccesoDato->RetornarConsulta("select * from vehiculosestacionados");
+        $consulta->execute();     
+        $datos= $consulta->fetchAll(PDO::FETCH_ASSOC);    
+        // var_dump($datos);
+        // die();
+
+        foreach ($datos as $vehiculo ) 
+        {
+          // var_dump($usuario );
+          echo "<li>Patente: ".$vehiculo["patente"];
+          echo "<br>";
+        }  
+      }    
+      ?>
 		</ol>
 		</div>
  	</main>
