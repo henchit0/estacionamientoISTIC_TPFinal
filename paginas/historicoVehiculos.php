@@ -34,17 +34,20 @@
             <th>&nbspTotal Cobrado&nbsp</th>
           </tr>
 			<?php
-      error_reporting(0);
-			$archivo = fopen("../archivos/historicoFacturados.txt", "r") or die("Imposible abrir el archivo");
-			while(!feof($archivo)) 
-			{
-		 		$objeto = json_decode(fgets($archivo));
-        if (!$objeto == "") {
+      $objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
+        $consulta =$objetoAccesoDato->RetornarConsulta("select * from usuario");
+        $consulta->execute();     
+        $datos= $consulta->fetchAll(PDO::FETCH_ASSOC);    
+        // var_dump($datos);
+        // die();
+
+        foreach ($datos as $vehiculo ) 
+        {
+          var_dump($datos);
+          die();
+          
           echo "<tr>";
-          echo "<td>".$objeto->patente."</td>   <td>".date("d-m-y H:i",$objeto->horaIngreso)."</td>   <td>".date("d-m-y H:i",$objeto->horaSalida)."</td>   <td>&nbsp&nbsp".$objeto->totalCobrado."</td></tr>";
-        }
-			}
-			fclose($archivo);
+          echo "<td>".$vehiculo['patente']."</td>   <td>".date("d-m-y H:i",$vehiculo['horaIngreso'])."</td>   <td>".date("d-m-y H:i",$vehiculo['horaEgreso'])."</td>   <td>&nbsp&nbsp".$vehiculo['montoFacturado']."</td></tr>";
 			?>      
 		</div>
  	</main>

@@ -21,16 +21,15 @@
         $consulta =$objetoAccesoDato->RetornarConsulta("select * from vehiculosestacionados");
         $consulta->execute();     
         $datos= $consulta->fetchAll(PDO::FETCH_ASSOC);
+
         // var_dump($datos);
         // die();
 
         foreach ($datos as $vehiculo) 
         {
-
 			if ($vehiculo['patente'] == $checkPatente) 
 			{	
 				$borrar = true;
-
 				//$horaSalida = strtotime($horaSalida);
 				$diffSegundos = $horaSalida - $vehiculo['horaIngreso'];
 				$diffAlternativo = $diffSegundos;
@@ -49,79 +48,18 @@
 					}					
 				}
 				$resultado = $contadorFraccion * $precioFraccion;
+			}
+		}				
+		$informarHora = $vehiculo['horaIngreso'];
+		// Inserte el vahiculo borrado en la tabla de historicos
+		$insert = "INSERT INTO historicavehiculos (patente, horaIngreso, haroEgreso, montoFacturado) VALUES ('$checkPatente','$informarHora','$horaSalida','$contadorFraccion')";			
+		$insertar =$objetoAccesoDato->RetornarConsulta($insert);
+		$insertar->execute();
+		// Borramos el vehiculo facturado de la tabla de estacionados
+		$select = "DELETE FROM vehiculosestacionados WHERE patente = '$checkPatente'";
+		$borrar = $objetoAccesoDato->RetornarConsulta($select);
+		$borrar->execute();				
 
-				$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-				$select="DELETE FROM vehiculosestacionados WHERE patente = $checkPatente";
-				$borrar =$objetoAccesoDato->RetornarConsulta($select);
-				$borrar->execute();
-
-				
-
-				header("Location: ../paginas/facturarVehiculo.php?cobrar=".$resultado."&ingreso=".$vehivulo['horaIngreso']."&salida=".$horaSalida."&estadia=".$contadorFraccion);
-				// $objetoHistorico->patente = $objetoPatente;
-				// $objetoHistorico->horaIngreso = $horaEntrada;
-				// $objetoHistorico->horaSalida = $horaSalida;
-				// $objetoHistorico->totalCobrado = $resultado;
-
-        	}
-
-		}
+		header("Location: ../paginas/facturarVehiculo.php?cobrar=".$resultado."&ingreso=".$vehiculo['horaIngreso']."&salida=".$horaSalida."&estadia=".$contadorFraccion);				
 	}
-
-	
-
-		// while(!feof($archivo)) 
-		// {
-		// 	$objeto = json_decode(fgets($archivo));
-
-		// 	$objetoPatente = $objeto->patente;
-		// 	$horaEntrada = $objeto->horaIngreso;
-
-		// 		fwrite($historico, json_encode($objetoHistorico)."\n");
-
-
-		// 		header("Location: ../paginas/facturarVehiculo.php?cobrar=".$resultado."&ingreso=".$horaEntrada."&salida=".$horaSalida."&estadia=".$contadorFraccion);
-		// 		exit();
-		// 	}
-		// 	else
-		// 	{
-		// 		header("Location: ../paginas/facturarVehiculo.php?error=patentenoexiste");
-		// 	}
-  //     	}
-
-      	
-
-   //   	if ($borrar) 
-   //   	{
-
-   //   		$archOriginal = fopen('../archivos/estacionados.txt', 'a');
-			// $archTemporal = fopen('../archivos/estacionados.tmp', 'a');
-
-			// $probandoPatente = "fff444";
-
-			// $reemplazarOriginal = false;
-
-			// while (!feof($archOriginal)) 
-			// {
-
-			//   	$registroJson = fgets($archOriginal);
-
-			// 	if (stristr($registroJson->patente,$probandoPatente)) 
-			// 	{
-
-			// 	    $registroJson = "";	
-			// 	    $reemplazarOriginal = true;
-			// 	}
-			// 	fputs($archTemporal, $registroJson);
-			// }
-
-			// fclose($archOriginal); 
-			// close($archTemporal);
-
-			// if ($reemplazarOriginal) 
-			// {
-			// 	// var_dump($diffSegundos)
-			//  //  			die();
-			//     rename('../archivos/estacionados.tmp', 'estacionados.txt');
-			// } else unlink('estacionados.tmp');
-		?>
+?>
