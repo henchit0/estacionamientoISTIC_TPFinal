@@ -34,20 +34,23 @@
             <th>&nbspTotal Cobrado&nbsp</th>
           </tr>
 			<?php
-      $objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-        $consulta =$objetoAccesoDato->RetornarConsulta("select * from usuario");
+      include "../acciones/AccesoDatos.php";
+
+        $objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
+        $consulta =$objetoAccesoDato->RetornarConsulta("select * from historicavehiculos");
         $consulta->execute();     
-        $datos= $consulta->fetchAll(PDO::FETCH_ASSOC);    
+        $datos= $consulta->fetchAll(PDO::FETCH_ASSOC);
+
         // var_dump($datos);
         // die();
+        foreach ($datos as $vehiculos) {
+          var_dump($vehiculos);
+          echo "<br>";
 
-        foreach ($datos as $vehiculo ) 
-        {
-          var_dump($datos);
-          die();
-          
+        }
+        die();
           echo "<tr>";
-          echo "<td>".$vehiculo['patente']."</td>   <td>".date("d-m-y H:i",$vehiculo['horaIngreso'])."</td>   <td>".date("d-m-y H:i",$vehiculo['horaEgreso'])."</td>   <td>&nbsp&nbsp".$vehiculo['montoFacturado']."</td></tr>";
+          echo "<td>".$objeto->patente."</td>   <td>".date("d-m-y H:i",$objeto->horaIngreso)."</td>   <td>".date("d-m-y H:i",$objeto->horaSalida)."</td>   <td>&nbsp&nbsp".$objeto->totalCobrado."</td></tr>";
 			?>      
 		</div>
  	</main>

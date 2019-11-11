@@ -52,11 +52,13 @@
 		}				
 		$informarHora = $vehiculo['horaIngreso'];
 		// Inserte el vahiculo borrado en la tabla de historicos
-		$insert = "INSERT INTO historicavehiculos (patente, horaIngreso, haroEgreso, montoFacturado) VALUES ('$checkPatente','$informarHora','$horaSalida','$contadorFraccion')";			
+		$insert = "INSERT INTO historicavehiculos (patente, horaIngreso, horaEgreso, montoFacturado) VALUES ('$checkPatente','$informarHora','$horaSalida','$resultado')";			
 		$insertar =$objetoAccesoDato->RetornarConsulta($insert);
 		$insertar->execute();
 		// Borramos el vehiculo facturado de la tabla de estacionados
 		$select = "DELETE FROM vehiculosestacionados WHERE patente = '$checkPatente'";
+		// var_dump($select);
+		// die();
 		$borrar = $objetoAccesoDato->RetornarConsulta($select);
 		$borrar->execute();				
 
