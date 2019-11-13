@@ -43,14 +43,12 @@
 
         // var_dump($datos);
         // die();
-        foreach ($datos as $vehiculos) {
-          var_dump($vehiculos);
-          echo "<br>";
+        foreach ($datos as $vehiculos) 
+        {
+          echo "<td>".$vehiculos['patente']."</td>   <td>".date("d-m-y H:i",$vehiculos['horaIngreso'])."</td>   <td>".date("d-m-y H:i",$vehiculos['horaEgreso'])."</td>   <td>&nbsp&nbsp".$vehiculos['montoFacturado']."</td></tr>";
 
         }
-        die();
-          echo "<tr>";
-          echo "<td>".$objeto->patente."</td>   <td>".date("d-m-y H:i",$objeto->horaIngreso)."</td>   <td>".date("d-m-y H:i",$objeto->horaSalida)."</td>   <td>&nbsp&nbsp".$objeto->totalCobrado."</td></tr>";
+        
 			?>      
 		</div>
  	</main>

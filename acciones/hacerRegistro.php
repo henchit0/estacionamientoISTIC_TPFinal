@@ -8,12 +8,22 @@
 
 
 	$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
+	$consulta =$objetoAccesoDato->RetornarConsulta("select * from usuario");
+	$consulta->execute();			
+	$datos= $consulta->fetchAll(PDO::FETCH_ASSOC);		
+	
+	foreach ($datos as $usuario ) 
+	{
+		if ($usuario['nombre'] == $miObjeto->usuario) 
+		{	
+			header("Location: ../paginas/registro.php?usuariorepetido=falla");
+			exit();
+		}			
+	}
+
 	$select="INSERT INTO usuario (nombre, clave, perfil) VALUES ('$miObjeto->usuario','$miObjeto->password','$miObjeto->perfil')";
 	$consulta =$objetoAccesoDato->RetornarConsulta($select);
 	$consulta->execute();
 
-	// $archivo = fopen('../archivos/usuarios.txt', 'a');
-	// fwrite($archivo, json_encode($miObjeto)."\n");
-	// fclose($archivo);
 	header("Location: ../paginas/registro.php?exito=exito");
 ?> 

@@ -31,6 +31,10 @@
           if (isset($_GET['exito'])) {
             echo '<p>Registro ingresado correctamente!</p>';
           }
+          else if (isset($_GET['usuariorepetido']))
+          {
+            echo '<p>Ya esas registrado!</p>';
+          }
         ?>
       </div>     
         <input type="text" name="inputUsuario" class="form-control" placeholder="Usuario" required autofocus>

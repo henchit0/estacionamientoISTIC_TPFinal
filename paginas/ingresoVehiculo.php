@@ -28,10 +28,15 @@
         <!-- <img class="mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72"> -->
         <h1 class="h3 mb-3 font-weight-normal">Ingreso de vehículo</h1>
       </div>
-        <?php if (isset($_GET['exito'])) 
-          {        
-            echo '<p>Vehiculo ingresado!</p>'; 
-          }
+        <?php 
+        if (isset($_GET['exito'])) 
+        {        
+          echo '<p>Vehiculo ingresado!</p>'; 
+        }
+        else if (isset($_GET['vehiculoestacionado']))
+        {
+          echo '<p>Este vehiculo ya esta estacionado!</p>'; 
+        }
         ?>         
         <input type="text" name="inputPatente" class="form-control" placeholder="patente" required>
       <button class="btn btn-lg btn-primary btn-block" type="submit">Ingresar</button>      
