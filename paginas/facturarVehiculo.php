@@ -23,7 +23,10 @@
     </header>
     <!-- Begin page content -->
     <main role="main" class="container">
-      <form action="../acciones/hacerFacturar.php" class="form-signin">
+     
+    <div class="row">
+  <div class="col-sm-4">    
+    <form action="../acciones/hacerFacturar.php" class="form-signin">
       <div class="text-center mb-4">
         <img class="mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
         <h1 class="h3 mb-3 font-weight-normal">Facturar vehículo</h1>
@@ -51,9 +54,39 @@
         }
         ?>         
         <input type="text" name="inputPatente" class="form-control" placeholder="patente" required>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Facturar</button>
-      
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Facturar</button>      
     </form> 
+  </div>
+  <div class="col-sm-8">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Firstname</th>
+          <th>Lastname</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>John</td>
+          <td>Doe</td>
+          <td>john@example.com</td>
+        </tr>
+        <tr>
+          <td>Mary</td>
+          <td>Moe</td>
+          <td>mary@example.com</td>
+        </tr>
+        <tr>
+          <td>July</td>
+          <td>Dooley</td>
+          <td>july@example.com</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+    
+  </div>
     </main>
     <footer class="footer">
       <?php  
