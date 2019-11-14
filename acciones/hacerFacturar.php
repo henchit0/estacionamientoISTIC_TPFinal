@@ -3,6 +3,7 @@
 	$precioFraccion = 100;	
 	$contadorFraccion = 0;
 	$borrar = false;
+	$flagNoExiste = 1;
 
 	
 	date_default_timezone_set('America/Argentina/Buenos_Aires');
@@ -29,6 +30,7 @@
         {
 			if ($vehiculo['patente'] == $checkPatente) 
 			{	
+				$flagNoExiste = 0;
 				$borrar = true;
 				//$horaSalida = strtotime($horaSalida);
 				$diffSegundos = $horaSalida - $vehiculo['horaIngreso'];
@@ -49,19 +51,28 @@
 				}
 				$resultado = $contadorFraccion * $precioFraccion;
 			}
-		}				
-		$informarHora = $vehiculo['horaIngreso'];
-		// Inserte el vahiculo borrado en la tabla de historicos
-		$insert = "INSERT INTO historicavehiculos (patente, horaIngreso, horaEgreso, montoFacturado) VALUES ('$checkPatente','$informarHora','$horaSalida','$resultado')";			
-		$insertar =$objetoAccesoDato->RetornarConsulta($insert);
-		$insertar->execute();
-		// Borramos el vehiculo facturado de la tabla de estacionados
-		$select = "DELETE FROM vehiculosestacionados WHERE patente = '$checkPatente'";
-		// var_dump($select);
-		// die();
-		$borrar = $objetoAccesoDato->RetornarConsulta($select);
-		$borrar->execute();				
+		}
 
-		header("Location: ../paginas/facturarVehiculo.php?cobrar=".$resultado."&ingreso=".$vehiculo['horaIngreso']."&salida=".$horaSalida."&estadia=".$contadorFraccion);				
+		if ($flagNoExiste == 1) 
+		{
+			header("Location: ../paginas/facturarVehiculo.php?error=noexiste");
+			exit();
+		}
+		else if ($flagNoExiste == 0)
+		{
+			$informarHora = $vehiculo['horaIngreso'];
+			// Inserte el vahiculo borrado en la tabla de historicos
+			$insert = "INSERT INTO historicavehiculos (patente, horaIngreso, horaEgreso, montoFacturado) VALUES ('$checkPatente','$informarHora','$horaSalida','$resultado')";		
+			$insertar =$objetoAccesoDato->RetornarConsulta($insert);
+			$insertar->execute();
+			// Borramos el vehiculo facturado de la tabla de estacionados
+			$select = "DELETE FROM vehiculosestacionados WHERE patente = '$checkPatente'";
+			// var_dump($select);
+			// die();
+			$borrar = $objetoAccesoDato->RetornarConsulta($select);
+			$borrar->execute();				
+
+			header("Location: ../paginas/facturarVehiculo.php?cobrar=".$resultado."&ingreso=".$vehiculo['horaIngreso']."&salida=".$horaSalida."&estadia=".$contadorFraccion);
+		}				
 	}
 ?>

@@ -61,27 +61,26 @@
     <table class="table">
       <thead>
         <tr>
-          <th>Firstname</th>
-          <th>Lastname</th>
-          <th>Email</th>
+          <th>Patente</th>
+          <th>Hora de Ingreso</th>
         </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>John</td>
-          <td>Doe</td>
-          <td>john@example.com</td>
-        </tr>
-        <tr>
-          <td>Mary</td>
-          <td>Moe</td>
-          <td>mary@example.com</td>
-        </tr>
-        <tr>
-          <td>July</td>
-          <td>Dooley</td>
-          <td>july@example.com</td>
-        </tr>
+      </thead>      
+      <tbody>        
+          <?php
+            include "../acciones/AccesoDatos.php";
+
+            $objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
+            $consulta =$objetoAccesoDato->RetornarConsulta("select * from vehiculosestacionados");
+            $consulta->execute();     
+            $datos= $consulta->fetchAll(PDO::FETCH_ASSOC);
+
+            foreach ($datos as $vehiculos) 
+            {
+              echo "<tr><td>".$vehiculos['patente']."</td>";
+              echo "<td>".date("d-m-y H:i",$vehiculos['horaIngreso'])."</td></tr>";
+
+            }        
+          ?>                
       </tbody>
     </table>
   </div>
@@ -96,7 +95,7 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" ></script>
     <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
