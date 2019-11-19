@@ -25,31 +25,7 @@
     <div class="col-5">
       <form action="../acciones/hacerLogin.php" >
         <div class="form-group">
-          <h1 class="h3 mb-3 font-weight-normal">Login</h1>
-          <?php  
-          if (isset($_GET['error'])) 
-          {
-            if ($_GET['error'] == "camposvacios") {
-              echo '<p>Llena todos los campos!</p>';
-            }
-            else if ($_GET['error'] == "passwordincorrecto") 
-            {
-              echo '<p>La contraseña es incorrecta!</p>';
-            }
-            else if ($_GET['error'] == "usuarioincorrecto") 
-            {
-              echo '<p>El usuario no existe!</p>';
-            }
-            else if ($_GET['error'] == "contraseñaincorrecta") 
-            {
-              echo '<p>Contraseña incorrecta!</p>';
-            }
-          }
-          else if (isset($_SESSION['idDeUsuario']))
-          {
-            echo '<p>Bienvenido!</p>';
-          } else '<p>Llena los campos.</p>';        
-          ?>
+          <h1 class="h3 mb-3 font-weight-normal">Login</h1>          
           <input type="text" class="form-control" name="inputUsuario" aria-describedby="emailHelp" placeholder="Usuario">
           <small id="emailHelp" class="form-text text-muted">Debe tener al menos 6 caracteres.</small>
       </div>
@@ -58,6 +34,30 @@
       </div>        
       <button type="submit" class="btn btn-primary">Log in</button>
     </form>
+    <?php  
+      if (isset($_GET['error'])) 
+      {
+        if ($_GET['error'] == "camposvacios") {
+          echo '<p>Llena todos los campos!</p>';
+        }
+        else if ($_GET['error'] == "passwordincorrecto") 
+        {
+          echo '<p>La contraseña es incorrecta!</p>';
+        }
+        else if ($_GET['error'] == "usuarioincorrecto") 
+        {
+          echo '<p>El usuario no existe!</p>';
+        }
+        else if ($_GET['error'] == "contraseñaincorrecta") 
+        {
+          echo '<p>Contraseña incorrecta!</p>';
+        }
+      }
+      else if (isset($_SESSION['idDeUsuario']))
+      {
+        echo '<p>Bienvenido!</p>';
+      } else '<p>Llena los campos.</p>';        
+      ?>
   </div>    
   </div>
 </div>     
