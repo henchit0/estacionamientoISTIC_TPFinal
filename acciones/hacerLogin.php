@@ -35,7 +35,7 @@
 					$_SESSION['idDeUsuario'] = $checkUsuario;
 					$_SESSION['perfil'] = $usuario['perfil'];
 					$_SESSION['horaIngreso'] = mktime();
-					header("Location: ../paginas/login.php");
+					header("Location: ../index.php?login=exitoso");
 					exit();
 				}			
 			}

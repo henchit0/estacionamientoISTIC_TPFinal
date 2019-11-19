@@ -1,46 +1,47 @@
-<?php  
+<?php
   include "../acciones/session.php";
 ?>
 <!doctype html>
 <html lang="en">
   <head>
+    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" href="../img/icon.ico">
-    <title>Ingreso Vehiculo</title>
-    <!-- Bootstrap core CSS -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom styles for this template -->
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="../css/sticky-footer-navbar.css" rel="stylesheet">
-    <!-- Custom styles for this template -->
-    <link href="../css/floating-labels.css" rel="stylesheet">
+    <title>Ingreso de Vehículo</title>
   </head>
   <body>
     <header>
-      <?php  
+      <?php 
         include "../componentes/header.php";
       ?>
     </header>
     <!-- Begin page content -->
-    <main role="main" class="container">
-      <form action="../acciones/hacerVehiculo.php" class="form-signin">
-      <div class="text-center mb-4">
-        <!-- <img class="mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72"> -->
-        <h1 class="h3 mb-3 font-weight-normal">Ingreso de vehículo</h1>
-      </div>
-        <?php 
-        if (isset($_GET['exito'])) 
-        {        
-          echo '<p>Vehiculo ingresado!</p>'; 
-        }
-        else if (isset($_GET['vehiculoestacionado']))
-        {
-          echo '<p>Este vehiculo ya esta estacionado!</p>'; 
-        }
-        ?>         
-        <input type="text" name="inputPatente" class="form-control" placeholder="patente" required>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Ingresar</button>      
-    </form> 
+    <main role="main" class="container  mt-5">
+      <div class="row justify-content-center">
+        <div class="col-5">
+          <form action="../acciones/hacerVehiculo.php">
+            <h1 class="h3 mb-3 text-center font-weight-normal">Ingreso de vehículo</h1>
+            <div class="form-group">
+              <label>Patente</label>
+              <input type="text" name="inputPatente" class="form-control"  aria-describedby="emailHelp" placeholder="Ingresar patente">
+            </div>                        
+            <button type="submit" class="btn btn-primary">Ingresar</button>
+            <?php 
+            if (isset($_GET['exito'])) 
+            {        
+              echo '<p>Vehiculo ingresado!</p>'; 
+            }
+            else if (isset($_GET['vehiculoestacionado']))
+            {
+              echo '<p>Este vehiculo ya esta estacionado!</p>'; 
+            }
+            ?>
+          </form>
+        </div>        
+      </div>       
     </main>
     <footer class="footer">
       <?php  
@@ -50,9 +51,8 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </body>
 </html>
