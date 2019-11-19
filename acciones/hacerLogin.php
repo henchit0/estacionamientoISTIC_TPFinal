@@ -9,7 +9,7 @@
 
 	if (empty($checkUsuario) || empty($checkPassword)) 
 	{
-		header("Location: ../login.php?error=camposvacios");
+		header("Location: ../paginas/login.php?error=camposvacios");
 		exit();
 	}
 	else
