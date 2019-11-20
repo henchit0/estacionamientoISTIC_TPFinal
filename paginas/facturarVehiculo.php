@@ -67,8 +67,8 @@
           </div>        
         </div>
         <div class="col-sm-6">
-          <table class="table table-hover">
-            <thead thead-dark>
+          <table class="table table-hover bg-light">
+            <thead class="thead-dark">
               <tr>
                 <th scope="col">#</th>
                 <th scope="col">Patente</th>

@@ -27,34 +27,36 @@
       <div class="row justify-content-center">
         <div class="col-sm-6">
           <h1 class="h3 mb-3 text-center font-weight-normal">Listado de usuarios</h1>
-          <table class="table table-hover">
-            <thead thead-dark>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Usuario</th>
-                <th scope="col">Perfil</th>
-              </tr>
-            </thead>      
-            <?php
-              include "../acciones/AccesoDatos.php";
+          <form action="../acciones/eliminarUsuario.php" method="post" accept-charset="utf-8">
+            <table class="table table-hover bg-light">
+              <thead class = "thead-dark">
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Usuario</th>
+                  <th scope="col">Perfil</th>
+                  <th scope="col">Eliminar</th>
+                </tr>
+              </thead>      
+              <?php
+                include "../acciones/AccesoDatos.php";
 
-              $objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-              $consulta =$objetoAccesoDato->RetornarConsulta("select * from usuario");
-              $consulta->execute();     
-              $datos= $consulta->fetchAll(PDO::FETCH_ASSOC);
+                $objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
+                $consulta =$objetoAccesoDato->RetornarConsulta("select * from usuario");
+                $consulta->execute();     
+                $datos= $consulta->fetchAll(PDO::FETCH_ASSOC);
 
-              $contador = 1;
-
-              foreach ($datos as $usuario) 
-              {
-                
-                echo "<tr><th scope='row'>".$contador."</th>";
-                echo "<td>".$usuario['nombre']."</td>";
-                echo "<td>".$usuario['perfil']."</td></tr>";
-                $contador++ ;
-              }        
-            ?>
-          </table>
+                $contador = 1;
+                foreach ($datos as $usuario) 
+                {                
+                  echo "<tr><th scope='row'>".$contador."</th>";
+                  echo "<td>".$usuario['nombre']."</td>";
+                  echo "<td>".$usuario['perfil']."</td>";
+                  echo "<td><button type='submit' name='eliminar' value='".$usuario['nombre']."' class='btn btn-danger'>Eliminar</button></td></tr>";
+                  $contador++ ;
+                }        
+              ?>
+            </table>
+          </form>  
         </div>    
       </div>
       <?php  

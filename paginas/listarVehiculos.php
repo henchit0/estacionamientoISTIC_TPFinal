@@ -20,11 +20,12 @@
     </header>
     <!-- Begin page content -->
     <main role="main" class="container mt-5">
-      <div class="row justify-content-center">
+<!--       <img src="..." class="img-fluid" alt="Responsive image">
+ -->      <div class="row justify-content-center">
         <div class="col-sm-6">
           <h1 class="h3 mb-3 text-center font-weight-normal">Listado de vehículos estacionados</h1>
-          <table class="table table-hover">
-            <thead thead-dark>
+          <table class="table table-hover bg-light">
+            <thead class = "thead-dark">
               <tr>
                 <th scope="col">#</th>
                 <th scope="col">Patente</th>
@@ -37,7 +38,7 @@
               $objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
               $consulta =$objetoAccesoDato->RetornarConsulta("select * from vehiculosestacionados");
               $consulta->execute();     
-              $datos= $consulta->fetchAll(PDO::FETCH_ASSOC);
+              $datos = $consulta->fetchAll(PDO::FETCH_ASSOC);
 
               $contador = 1;
 
