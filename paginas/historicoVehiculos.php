@@ -8,11 +8,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href = "../css/sticky-footer-navbar.css" rel="stylesheet">
     <title>Historico de vehículos</title>
   </head>
-  <body>
+  <body class="bg-body">
 
     <header>
       <?php 
@@ -22,10 +23,10 @@
     <!-- Begin page content -->
     <main role="main" class="container mt-5">
     	<div class="row justify-content-center">
-        <div class="col-sm-8">
+        <div class="col-sm-8 bg-row p-5">
           <h1 class="h3 mb-3 text-center font-weight-normal">Listado Historico de vehiculos</h1>
-          <table class="table table-hover mb-5">
-            <thead thead-dark>
+          <table class="table table-hover mb-5 bg-light" style ="text-align: center;">
+            <thead class = "thead-dark">
               <tr>
                 <th scope="col">#</th>
                 <th scope="col">Patente</th>
@@ -60,7 +61,7 @@
       </div>
  	  </main> 
 
-    <footer class="footer">
+    <footer class="footer bg-dark">
       <?php  
         include "../componentes/footer.php";
       ?>

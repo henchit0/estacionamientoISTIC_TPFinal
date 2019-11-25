@@ -26,12 +26,17 @@
 			// var_dump($usuario );
 			// echo "su nombre es".$usuario["nombre"];
 			// echo "<br>";
-		
-			if ($usuario['nombre'] == $checkUsuario) 
+			
+			if ($usuario['user'] == $checkUsuario) 
 			{	
-				$booUsuario = 1;
-				if ($usuario['clave'] == $checkPassword)
+				if ($usuario['estado'] == 'deshabilitado') 
 				{
+					header("Location: ../paginas/login.php?error=usuariodenegado");
+					exit();
+				}
+				elseif ($usuario['clave'] == $checkPassword)
+				{
+					$booUsuario = 1;
 					$_SESSION['idDeUsuario'] = $checkUsuario;
 					$_SESSION['perfil'] = $usuario['perfil'];
 					$_SESSION['horaIngreso'] = mktime();
@@ -43,13 +48,11 @@
 		}	
 		if ($booUsuario == 0) {
 			header("Location: ../paginas/login.php?error=usuarioincorrecto");
-			fclose($archivo);
 			exit();
 		}
 		else 
 	    {
 			header("Location: ../paginas/login.php?error=contraseñaincorrecta");
-			fclose($archivo);
 			exit();
 		}
 

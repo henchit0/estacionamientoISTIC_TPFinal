@@ -14,14 +14,14 @@
 	
 	foreach ($datos as $usuario ) 
 	{
-		if ($usuario['nombre'] == $miObjeto->usuario) 
+		if ($usuario['usuario'] == $miObjeto->usuario) 
 		{	
 			header("Location: ../paginas/registro.php?usuariorepetido=falla");
 			exit();
 		}			
 	}
 
-	$select="INSERT INTO usuario (nombre, clave, perfil) VALUES ('$miObjeto->usuario','$miObjeto->password','$miObjeto->perfil')";
+	$select="INSERT INTO usuario (user, clave, perfil) VALUES ('$miObjeto->usuario','$miObjeto->password','$miObjeto->perfil')";
 	$consulta =$objetoAccesoDato->RetornarConsulta($select);
 	$consulta->execute();
 

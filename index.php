@@ -9,6 +9,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="css/sticky-footer-navbar.css" rel="stylesheet">
     <title>Home</title>
@@ -25,7 +26,7 @@
           <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>          
         </li>
         <?php 
-          if (isset($_SESSION['idDeUsuario']) && $_SESSION['perfil'] == 'admin')
+          if (isset($_SESSION['idDeUsuario']) && $_SESSION['perfil'] == 'Admin')
           {
         ?>
           <li class="nav-item">
@@ -48,7 +49,7 @@
           </li>
           <?php 
           }
-          	elseif (isset($_SESSION['idDeUsuario']) && $_SESSION['perfil'] == 'cajero') 
+          	elseif (isset($_SESSION['idDeUsuario']) && $_SESSION['perfil'] == 'Cajero') 
           {                
           ?>           
             <li class="nav-item">
@@ -85,19 +86,19 @@
 	    </div>
 	  </nav>  	
   </header><!-- /header -->
-  <body>
+  <body class="bg-body">
     <main role="main" class="container mt-5">
-    	    <h1>Hello, world!</h1>
+    	    
     </main>	
 
-	<footer class="footer">
+	<footer class="footer bg-dark">
       <?php 
 		if(isset($_SESSION['idDeUsuario']))
 		{//solo muestra el menu si estas con la variable de sesión instaciada
 		?>
 			<div class="container">
 			  <span class="text-muted">Bienvenido <?php echo $_SESSION['idDeUsuario'];?></span>  
-			  <span class="text-muted">Hora de ingreso <?php echo date("d-m-y H:i",$_SESSION['horaIngreso']) ?></span>
+			  <span class="text-muted">. Ingreso <?php echo date("d-m-y H:i",$_SESSION['horaIngreso']) ?></span>
 			</div>
 			<?php 
 			  }

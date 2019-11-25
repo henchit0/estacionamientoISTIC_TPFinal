@@ -10,6 +10,15 @@ Server: remotemysql.com
 
 Port: 3306
 
+--------------------------
+
+Username: 9uRboaQQ6f
+
+Database name: 9uRboaQQ6f
+
+Password: LYzRvdOA4u
+
+Server: remotemysql.com
 
 Tarea
 

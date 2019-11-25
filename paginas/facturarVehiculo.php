@@ -8,27 +8,25 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="../css/sticky-footer-navbar.css" rel="stylesheet">
     <title>Ingreso de Vehículo</title>
   </head>
-  <body>
+  <body class="bg-body">
     <header>
       <?php 
         include "../componentes/header.php";
       ?>
     </header>
     <!-- Begin page content -->
-    <main role="main" class="container mt-5">
-      <div class="text-center mb-4">
-        <img class="mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-        <h1 class="h3 mb-3 font-weight-normal">Facturar vehículo</h1>
-      </div>
-      <div class="row">
-        <div class="col-sm-6" style="margin-bottom: 50px;">
+    <main role="main" class="container mt-5">      
+      <div class="row bg-row p-5">
+        <div class="col-sm-6">
           <div class="row">
-            <div class="col-sm-10 mb-3">
-              <form action="../acciones/hacerFacturar.php">              
+            <div class="col-sm-10 mb-3 overflow-hidden">
+              <form action="../acciones/hacerFacturar.php">
+                <h1 class="text-center h3 mb-3 font-weight-normal">Facturar vehículo</h1>              
                 <div class="form-group">
                   <label for="exampleInputEmail1">Patente</label>
                   <input type="text" class="form-control" name="inputPatente" placeholder="Ingresa patente">
@@ -38,7 +36,7 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-sm 10 mt-3">            
+            <div class="col-sm 10 mt-3">                          
               <?php 
                 if (isset($_GET['exito']))
                 {        
@@ -66,8 +64,9 @@
             </div>
           </div>        
         </div>
-        <div class="col-sm-6">
-          <table class="table table-hover bg-light">
+        <div class="col-sm-6 overflow-auto">
+          <h1 class="text-center h3 mb-4 font-weight-normal">Vehículos estacionados</h1>
+          <table class="table table-hover bg-light" style ="text-align: center;">
             <thead class="thead-dark">
               <tr>
                 <th scope="col">#</th>
@@ -101,7 +100,7 @@
       </div>
     </main>
 
-    <footer class="footer">
+    <footer class="footer bg-dark">
       <?php  
         include "../componentes/footer.php";
       ?>

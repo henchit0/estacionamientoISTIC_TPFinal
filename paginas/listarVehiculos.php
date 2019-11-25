@@ -8,11 +8,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="../css/sticky-footer-navbar.css" rel="stylesheet">
     <title>Listado de Vehículos</title>
   </head>
-  <body>
+  <body class="bg-body">
     <header>
       <?php 
         include "../componentes/header.php";
@@ -21,10 +22,10 @@
     <!-- Begin page content -->
     <main role="main" class="container mt-5">
 <!--       <img src="..." class="img-fluid" alt="Responsive image">
- -->      <div class="row justify-content-center">
-        <div class="col-sm-6">
-          <h1 class="h3 mb-3 text-center font-weight-normal">Listado de vehículos estacionados</h1>
-          <table class="table table-hover bg-light">
+ -->  <div class="row justify-content-center">
+        <div class="col-sm-8 bg-row pl-5 pr-5 pt-4 pb-5">
+          <h3 class="mb-3 text-center font-weight-normal">Listado de vehículos estacionados</h1>
+          <table class="table table-hover bg-light" style ="text-align: center;">
             <thead class = "thead-dark">
               <tr>
                 <th scope="col">#</th>
@@ -55,7 +56,7 @@
         </div>    
       </div>
    	</main>
-    <footer class="footer">
+    <footer class="footer bg-dark">
       <?php  
         include "../componentes/footer.php";
       ?>

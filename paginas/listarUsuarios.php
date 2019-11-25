@@ -8,11 +8,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="../css/sticky-footer-navbar.css" rel="stylesheet">
     <title>Listado de Usuarios</title>
   </head>
-  <body>
+  <body class="bg-body">
     <header>
       <?php 
         include "../componentes/header.php";
@@ -25,16 +26,17 @@
       {
       ?>
       <div class="row justify-content-center">
-        <div class="col-sm-6">
-          <h1 class="h3 mb-3 text-center font-weight-normal">Listado de usuarios</h1>
-          <form action="../acciones/eliminarUsuario.php" method="post" accept-charset="utf-8">
-            <table class="table table-hover bg-light">
+        <div class="col-sm-8 bg-row pl-5 pr-5 pt-4 pb-5">
+          <h1 class="h3 mb-5 text-center font-weight-normal">Listado de usuarios</h1>
+          <form action="../acciones/actualizarUsuario.php" method="post" accept-charset="utf-8">
+            <table class="table table-hover bg-light" style ="text-align: center;">
               <thead class = "thead-dark">
                 <tr>
-                  <th scope="col">#</th>
+                  <th scope="col">ID Usuario</th>
                   <th scope="col">Usuario</th>
                   <th scope="col">Perfil</th>
-                  <th scope="col">Eliminar</th>
+                  <th scope="col">Estado</th>
+                  <th scope="col">Habilitar / Deshabilitar</th>
                 </tr>
               </thead>      
               <?php
@@ -48,10 +50,18 @@
                 $contador = 1;
                 foreach ($datos as $usuario) 
                 {                
-                  echo "<tr><th scope='row'>".$contador."</th>";
-                  echo "<td>".$usuario['nombre']."</td>";
+                  echo "<tr><th scope='row'>".$usuario['idUsuario']."</th>";
+                  echo "<td>".$usuario['user']."</td>";
                   echo "<td>".$usuario['perfil']."</td>";
-                  echo "<td><button type='submit' name='eliminar' value='".$usuario['nombre']."' class='btn btn-danger'>Eliminar</button></td></tr>";
+                  echo "<td>".$usuario['estado']."</td>";                  
+                  if ($usuario['estado'] == 'Deshabilitado') 
+                  {
+                    echo "<td><button type='submit' name='habilitar' value='".$usuario['idUsuario']."' class='btn btn-success'>Habilitar</button></td></tr>";
+                  }
+                  else
+                  {                    
+                    echo "<td><button type='submit' name='deshabilitar' value='".$usuario['idUsuario']."' class='btn btn-danger'>Deshabilitar</button></td></tr>";
+                  }                   
                   $contador++ ;
                 }        
               ?>
@@ -63,7 +73,7 @@
       }
       ?>    	
  	  </main>
-    <footer class="footer">
+    <footer class="footer bg-dark">
       <?php  
         include "../componentes/footer.php";
       ?>

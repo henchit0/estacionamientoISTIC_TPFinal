@@ -22,7 +22,7 @@
     <main role="main" class="container  mt-5">
       <div class="row justify-content-center"> 
 
-        <div class="col-5">
+        <div class="col-sm-5 mb-3">
           <form action="../acciones/hacerRegistro.php">
             <div class="form-group">
               <h1 class="h3 mb-3 font-weight-normal">Registro</h1>              
@@ -35,8 +35,8 @@
               <div class="col-4">
                 <select name="perfilRegistro" id="inputState" class="form-control">
                   <option selected>Elije...</option>
-                  <option value="admin">Administrador</option>
-                  <option value="cajero">Cajero</option>
+                  <option value="Admin">Administrador</option>
+                  <option value="Cajero">Cajero</option>
                 </select>
               </div>
               <div class="col-4">
@@ -56,7 +56,7 @@
         </div>        
       </div>      
     </main>
-    <footer class="footer">
+    <footer class="footer bg-dark">
       <?php  
         include "../componentes/footer.php";
       ?>

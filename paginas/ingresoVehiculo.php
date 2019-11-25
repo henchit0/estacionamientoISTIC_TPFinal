@@ -8,11 +8,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="../css/sticky-footer-navbar.css" rel="stylesheet">
     <title>Ingreso de Vehículo</title>
   </head>
-  <body>
+  <body class="bg-body">
     <header>
       <?php 
         include "../componentes/header.php";
@@ -20,15 +21,15 @@
     </header>
     <!-- Begin page content -->
     <main role="main" class="container  mt-5">
-      <div class="row justify-content-center">
-        <div class="col-5">
+      <div class="row justify-content-center bg-row pt-5 pb-5">
+        <div class="col-sm-4 pl-5 pr-5">
           <form action="../acciones/hacerVehiculo.php">
             <h1 class="h3 mb-3 text-center font-weight-normal">Ingreso de vehículo</h1>
             <div class="form-group">
               <label>Patente</label>
               <input type="text" name="inputPatente" class="form-control"  aria-describedby="emailHelp" placeholder="Ingresar patente">
             </div>                        
-            <button type="submit" class="btn btn-primary">Ingresar</button>
+            <button type="submit" class="btn btn-primary mb-3">Ingresar</button>
             <?php 
             if (isset($_GET['exito'])) 
             {        
@@ -40,10 +41,41 @@
             }
             ?>
           </form>
+        </div>
+        <div class="col-sm-6 ml-5 mr-5">
+          <h1 class="h3 mb-3 text-center font-weight-normal">Listado de vehículos estacionados</h1>
+          <table class="table table-hover bg-light" style ="text-align: center;">
+            <thead class = "thead-dark">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Patente</th>
+                <th scope="col">Hora de Ingreso</th>
+              </tr>
+            </thead>      
+            <?php
+              include "../acciones/AccesoDatos.php";
+
+              $objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
+              $consulta =$objetoAccesoDato->RetornarConsulta("select * from vehiculosestacionados");
+              $consulta->execute();     
+              $datos = $consulta->fetchAll(PDO::FETCH_ASSOC);
+
+              $contador = 1;
+
+              foreach ($datos as $vehiculos) 
+              {
+                
+                echo "<tr><th scope='row'>".$contador."</th>";
+                echo "<td>".$vehiculos['patente']."</td>";
+                echo "<td>".date("d-m-y H:i",$vehiculos['horaIngreso'])."</td></tr>";
+                $contador++ ;
+              }        
+            ?>
+          </table>
         </div>        
       </div>       
     </main>
-    <footer class="footer">
+    <footer class="footer bg-dark">
       <?php  
         include "../componentes/footer.php";
       ?>
