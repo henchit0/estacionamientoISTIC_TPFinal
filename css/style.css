@@ -1,5 +1,5 @@
 .bg-body{
-
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
 	background-image: url("../img/parking3.jpg");
     background-position: center;
     background-size: cover;
@@ -13,10 +13,60 @@
 .bg-row
 {
 	background: rgba(52, 58, 64, 0.65);
-	border-radius: 5px;
+	border-radius: 8px;
 	color: white;
 }
+#header > ul > li > a.detalle
+{
+	color: #4bc08e!important;
+}
+
 .detalle
 {
-	color: #4bc08e;
+	color: #4bc08e!important;
+}
+
+/* Style buttons */
+.btn-own {
+      display: inline-block;
+    font-weight: 400;
+    color: #212529;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;  
+}
+
+.btn-own:hover
+{
+  background-color: #42a178;
+  border-color: #42a178;
+  color: white;
+}
+
+.btn-apple
+{
+  color: #fff;
+  background-color: #4bc08e;
+  border-color: #4bc08e;
+}
+
+.small-own
+{
+  color: #4bc08e;
+}
+
+
+/* Darker background on mouse-over */
+.btn:hover {
+  background-color: RoyalBlue;
 }
