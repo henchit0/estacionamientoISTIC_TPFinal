@@ -20,6 +20,17 @@ Password: LYzRvdOA4u
 
 Server: remotemysql.com
 
+
+-------------------------
+
+Username: 6UplQuNlyA
+
+Database name: 6UplQuNlyA
+
+Password: ylckSI4r45
+
+Server: remotemysql.com
+
 Tarea
 
 1 - No permite usuario repetido

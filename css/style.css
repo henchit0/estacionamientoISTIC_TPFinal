@@ -16,10 +16,7 @@
 	border-radius: 8px;
 	color: white;
 }
-#header > ul > li > a.detalle
-{
-	color: #4bc08e!important;
-}
+
 
 .detalle
 {
@@ -28,7 +25,7 @@
 
 /* Style buttons */
 .btn-own {
-      display: inline-block;
+    display: inline-block;
     font-weight: 400;
     color: #212529;
     text-align: center;
@@ -66,7 +63,17 @@
 }
 
 
-/* Darker background on mouse-over */
-.btn:hover {
-  background-color: RoyalBlue;
+.drop-own
+{    
+    background-color: #343a40!important;    
+}
+
+.drop-item
+{
+  color: white!important;
+}
+
+.drop-item:hover
+{
+  color: #343a40!important;
 }

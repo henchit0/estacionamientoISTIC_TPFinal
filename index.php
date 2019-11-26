@@ -37,15 +37,16 @@
           <li class="nav-item">
             <a class="nav-link" href="paginas/facturarVehiculo.php">Facturar Vehiculo</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="paginas/listarVehiculos.php">Listar Vehiculos</a>
-          </li>           
-          <li class="nav-item">
-            <a class="nav-link" href="paginas/listarUsuarios.php">Listar Usuarios</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="paginas/historicoVehiculos.php">Historial Vehiculos</a>
-          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Listados
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="paginas/listarVehiculos.php">Listar Vehiculos</a>
+              <a class="dropdown-item" href="paginas/listarUsuarios.php">Listar Usuarios</a>
+              <a class="dropdown-item" href="acciones/hacerLogout.php">Historial Vehiculos</a>
+            </div>
+          </li>          
           <li class="nav-item">
             <a class="nav-link" href="acciones/hacerLogout.php"><img class="pr-2" src="img/icons8_export_16px.png">Logout</a>
           </li>

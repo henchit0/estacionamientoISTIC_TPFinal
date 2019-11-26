@@ -37,7 +37,7 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-sm-4 pl-5 pr-5">                          
+            <div class="col-sm-12 pl-5 pr-5">                          
               <?php 
                 if (isset($_GET['exito']))
                 {        

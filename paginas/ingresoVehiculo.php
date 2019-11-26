@@ -35,11 +35,15 @@
           <?php 
             if (isset($_GET['exito'])) 
             {        
-              echo '<small class="small-own">Vehiculo ingresado!</small>'; 
+              echo '<small class="small-own">Vehiculo ingresado.</small>'; 
             }
             else if (isset($_GET['vehiculoestacionado']))
             {
-              echo '<small class="small-own">Este vehiculo ya esta estacionado!</small>'; 
+              echo '<small class="small-own">Este vehiculo ya esta estacionado.</small>'; 
+            }
+            else if (isset($_GET['falla'])) 
+            {
+              echo '<small class="small-own">Patente invalida.</small>';
             }
             ?>
         </div>

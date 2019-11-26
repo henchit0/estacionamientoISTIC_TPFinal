@@ -21,21 +21,21 @@
             <a class="nav-link <?= (basename($_SERVER['PHP_SELF'])=='facturarVehiculo.php')?'detalle':''; ?>" href="../paginas/facturarVehiculo.php">Facturar Vehiculo</a>
           </li>
 
-          <li class="nav-item">
-            <a class="nav-link <?= (basename($_SERVER['PHP_SELF'])=='listarVehiculos.php')?'detalle':''; ?>" href="../paginas/listarVehiculos.php">Listar Vehiculos</a>
-          </li>
-             
-          <li class="nav-item">
-            <a class="nav-link <?= (basename($_SERVER['PHP_SELF'])=='listarUsuarios.php')?'detalle':''; ?>" href="../paginas/listarUsuarios.php">Listar Usuarios</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link <?= (basename($_SERVER['PHP_SELF'])=='historicoVehiculos.php')?'detalle':''; ?>" href="../paginas/historicoVehiculos.php">Historial Vehiculos</a>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Listados
+            </a>
+            <div class="dropdown-menu drop-own" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item drop-item <?= (basename($_SERVER['PHP_SELF'])=='listarVehiculos.php')?'detalle':''; ?>" href="../paginas/listarVehiculos.php">Listar Vehiculos</a>
+              <a class="dropdown-item drop-item <?= (basename($_SERVER['PHP_SELF'])=='listarUsuarios.php')?'detalle':''; ?>" href="../paginas/listarUsuarios.php">Listar Usuarios</a>
+              <a class="dropdown-item drop-item <?= (basename($_SERVER['PHP_SELF'])=='historicoVehiculos.php')?'detalle':''; ?>" href="../paginas/historicoVehiculos.php">Historial Vehiculos</a>
+            </div>
           </li>
   
           <li class="nav-item">
             <a class="nav-link" href="../acciones/hacerLogout.php"><img class="pr-2" src="../img/icons8_export_16px.png">Logout</a>
           </li>
+          
         <?php 
         }
          elseif (isset($_SESSION['idDeUsuario']) && $_SESSION['perfil'] == 'Cajero') 
@@ -55,7 +55,7 @@
 
           <li class="nav-item">
             <a class="nav-link <?= (basename($_SERVER['PHP_SELF'])=='hacerLogout.php')?'detalle':''; ?>" href="../acciones/hacerLogout.php">Logout</a>
-          </li> -->
+          </li>
         <?php  
         }
          else
@@ -66,7 +66,7 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link <?= (basename($_SERVER['PHP_SELF'])=='login.php')?'detalle':''; ?>" href="../paginas/login.php">Login</a>
+            <a class="nav-link  <?= (basename($_SERVER['PHP_SELF'])=='login.php')?'detalle':''; ?>" href="../paginas/login.php">Login</a>
           </li>
         <?php 
         }

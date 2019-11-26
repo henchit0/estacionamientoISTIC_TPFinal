@@ -32,6 +32,7 @@
 			{	
 				$flagNoExiste = 0;
 				$borrar = true;
+				$informarHora = $vehiculo['horaIngreso'];
 				//$horaSalida = strtotime($horaSalida);
 				$diffSegundos = $horaSalida - $vehiculo['horaIngreso'];
 				$diffAlternativo = $diffSegundos;
@@ -60,7 +61,7 @@
 		}
 		else if ($flagNoExiste == 0)
 		{
-			$informarHora = $vehiculo['horaIngreso'];
+			
 			// Inserte el vahiculo borrado en la tabla de historicos
 			$insert = "INSERT INTO historicavehiculos (patente, horaIngreso, horaEgreso, montoFacturado) VALUES ('$checkPatente','$informarHora','$horaSalida','$resultado')";		
 			$insertar =$objetoAccesoDato->RetornarConsulta($insert);
