@@ -44,7 +44,7 @@
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               <a class="dropdown-item" href="paginas/listarVehiculos.php">Listar Vehiculos</a>
               <a class="dropdown-item" href="paginas/listarUsuarios.php">Listar Usuarios</a>
-              <a class="dropdown-item" href="acciones/hacerLogout.php">Historial Vehiculos</a>
+              <a class="dropdown-item" href="paginas/historicoVehiculos.php">Historial Vehiculos</a>
             </div>
           </li>          
           <li class="nav-item">
