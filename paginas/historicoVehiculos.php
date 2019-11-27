@@ -55,18 +55,20 @@
                 echo "<td>".$vehiculos['patente']."</td>";
                 echo "<td>".date("d-m-y H:i",$vehiculos['horaIngreso'])."</td>";
                 echo "<td>".date("d-m-y H:i",$vehiculos['horaEgreso'])."</td>";
-                echo "<td>".$vehiculos['montoFacturado']."</td></tr>";
+                echo "<td>$".$vehiculos['montoFacturado']."</td></tr>";
                 $contador++ ;
               } 
-                echo "<tr><th scope='row'>".$contador."</th>";
-                echo "<td>Total</td>";
-                echo "<td>facturado</td>";
-                echo "<td>--</td>";
-                echo "<td>$".$totalFacturado."</td></tr>";
+                // echo "<tr><th scope='row'>".$contador."</th>";
+                // echo "<td>Total</td>";
+                // echo "<td>facturado</td>";
+                // echo "<td>--</td>";
+                // echo "<td>$".$totalFacturado."</td></tr>";
     			 ?>
            </table>
-           <h4 class="text-right   detalle font-weight-normal">Total facturado: $<?php echo $totalFacturado ?></h1>     
-        </div>
+           <form action="../acciones/descargarHistorico.php">             
+            <button type="submit" class="btn-own btn-apple"><img class="pr-2" src="../img/icons8_bill_16px.png">Descargar</button>
+           </form>
+        <!--<h4 class="text-right   detalle font-weight-normal">Total facturado: $<?php echo $totalFacturado ?></h1>-->    </div>
       </div>
  	  </main> 
 
