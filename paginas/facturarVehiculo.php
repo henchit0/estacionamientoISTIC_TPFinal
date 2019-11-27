@@ -51,11 +51,11 @@
                   $salida = $_GET['salida'];
                   $estadia = $_GET['estadia'];
                   
-                  echo "<label>Vehiculo facturado: ".$patente."</label><br>";
-                  echo "<label>Fecha de ingreso: ".date("d-m-y H:i",$ingreso)."</label><br>";
-                  echo "<label>Fecha de salida: ".date("d-m-y H:i",$salida)."</label><br>";
-                  echo "<label>Cantidad de horas de estadia: ".$estadia."</label><br>";
-                  echo "<label>Total a pagar: $".$aPagar."</label><br>";
+                  echo "<small>Vehiculo facturado: ".$patente."</small><br>";
+                  echo "<small>Fecha de ingreso: ".date("d-m-y H:i",$ingreso)."</small><br>";
+                  echo "<small>Fecha de salida: ".date("d-m-y H:i",$salida)."</small><br>";
+                  echo "<small>Cantidad de horas de estadia: ".$estadia."</small><br>";
+                  echo "<small>Total a pagar: $".$aPagar."</small><br>";
                 }
                 else if (isset($_GET['error'])) 
                 {

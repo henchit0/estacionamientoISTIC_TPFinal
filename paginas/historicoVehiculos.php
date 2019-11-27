@@ -45,9 +45,11 @@
               $datos= $consulta->fetchAll(PDO::FETCH_ASSOC);
 
               $contador = 1;
-
+              $totalFacturado = 0;
               foreach ($datos as $vehiculos) 
               {
+
+                $totalFacturado = $totalFacturado + $vehiculos['montoFacturado'];
                 
                 echo "<tr><th scope='row'>".$contador."</th>";
                 echo "<td>".$vehiculos['patente']."</td>";
@@ -55,9 +57,15 @@
                 echo "<td>".date("d-m-y H:i",$vehiculos['horaEgreso'])."</td>";
                 echo "<td>".$vehiculos['montoFacturado']."</td></tr>";
                 $contador++ ;
-              }          
+              } 
+                echo "<tr><th scope='row'>".$contador."</th>";
+                echo "<td>Total</td>";
+                echo "<td>facturado</td>";
+                echo "<td>--</td>";
+                echo "<td>$".$totalFacturado."</td></tr>";
     			 ?>
-           </table>     
+           </table>
+           <h4 class="text-right   detalle font-weight-normal">Total facturado: $<?php echo $totalFacturado ?></h1>     
         </div>
       </div>
  	  </main> 
