@@ -36,7 +36,7 @@
             <div class="row">
               <div class="col-4 mb-2">
                 <select name="perfilRegistro" id="inputState" class="form-control">
-                  <option selected>Elije...</option>
+                  <option selected>Elige...</option>
                   <option value="Admin">Administrador</option>
                   <option value="Cajero">Cajero</option>
                 </select>
